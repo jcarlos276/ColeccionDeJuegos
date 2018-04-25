@@ -40,7 +40,7 @@
                     <navigationItem key="navigationItem" id="Rzk-02-MQR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="97p-tT-ryZ">
                             <connections>
-                                <segue destination="F6N-DF-O5b" kind="show" id="3xh-sT-RRw"/>
+                                <segue destination="F6N-DF-O5b" kind="show" identifier="juegoSegue" id="3xh-sT-RRw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,6 +62,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-hf-odq">
                                 <rect key="frame" x="87.5" y="84" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="UzD-pq-rdr"/>
                                     <constraint firstAttribute="width" constant="200" id="nli-PT-soY"/>
@@ -80,16 +81,25 @@
                                     <action selector="addTapped:" destination="F6N-DF-O5b" eventType="touchUpInside" id="7i3-qP-Bq1"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5B-j2-MQp">
+                                <rect key="frame" x="160" y="399" width="55" height="30"/>
+                                <state key="normal" title="Eliminar"/>
+                                <connections>
+                                    <action selector="eliminarTapped:" destination="F6N-DF-O5b" eventType="touchUpInside" id="5HV-Kc-Nv6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fqu-t3-OY5" firstAttribute="top" secondItem="dat-QE-IfS" secondAttribute="bottom" constant="20" id="RKr-fJ-wEI"/>
                             <constraint firstItem="dat-QE-IfS" firstAttribute="centerX" secondItem="Xzx-4D-get" secondAttribute="centerX" id="Uts-6J-abo"/>
                             <constraint firstItem="Gka-hf-odq" firstAttribute="centerX" secondItem="Xzx-4D-get" secondAttribute="centerX" id="Zd8-iS-bVa"/>
+                            <constraint firstItem="p5B-j2-MQp" firstAttribute="top" secondItem="Fqu-t3-OY5" secondAttribute="bottom" constant="15" id="dQy-9s-LuM"/>
                             <constraint firstItem="dat-QE-IfS" firstAttribute="top" secondItem="Gka-hf-odq" secondAttribute="bottom" constant="20" id="klk-ax-Xff"/>
                             <constraint firstItem="Gka-hf-odq" firstAttribute="top" secondItem="Xzx-4D-get" secondAttribute="top" constant="20" id="s0a-UP-0de"/>
                             <constraint firstItem="dat-QE-IfS" firstAttribute="width" secondItem="Gka-hf-odq" secondAttribute="width" id="sWa-TZ-nt9"/>
                             <constraint firstItem="Fqu-t3-OY5" firstAttribute="centerX" secondItem="Xzx-4D-get" secondAttribute="centerX" id="tgC-ek-vIm"/>
+                            <constraint firstItem="p5B-j2-MQp" firstAttribute="centerX" secondItem="bIG-OI-cf0" secondAttribute="centerX" id="ym0-si-6qR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xzx-4D-get"/>
                     </view>
@@ -108,6 +118,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="agregarActualizarBoton" destination="Fqu-t3-OY5" id="r9s-PX-eyJ"/>
+                        <outlet property="eliminarBoton" destination="p5B-j2-MQp" id="zDT-x6-EKz"/>
                         <outlet property="juegoImageView" destination="Gka-hf-odq" id="DNU-Ma-zw3"/>
                         <outlet property="tituloTextField" destination="dat-QE-IfS" id="7yY-eL-Uzu"/>
                     </connections>

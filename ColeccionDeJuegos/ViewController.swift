@@ -28,6 +28,13 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "juegoSegue" {
+            let vc = segue.destination as! JuegoViewController
+            vc.juego = sender as? Juego
+        }
+    }
+    
     func configureContent() {
         tableView.delegate = self
     }
@@ -43,6 +50,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = juego.titulo
         cell.imageView?.image = UIImage(data: (juego.imagen!) as Data)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let juego = juegos[indexPath.row]
+        performSegue(withIdentifier: "juegoSegue", sender: juego)
     }
 }
 
